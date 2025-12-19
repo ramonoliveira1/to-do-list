@@ -1,0 +1,62 @@
+{
+  "name": "To-Do List API",
+  "description": "Collection of endpoints for the To-Do List API",
+  "version": "1.0.0",
+  "baseUrl": "http://localhost:8080",
+  "requests": [
+    {
+      "name": "Create Task",
+      "method": "POST",
+      "url": "{{baseUrl}}/tasks",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mode": "raw",
+        "raw": "{\n  \"title\": \"Minha primeira tarefa\",\n  \"description\": \"Descrição da tarefa\"\n}"
+      },
+      "description": "Creates a new task"
+    },
+    {
+      "name": "Get All Tasks",
+      "method": "GET",
+      "url": "{{baseUrl}}/tasks",
+      "headers": [],
+      "description": "Returns all tasks"
+    },
+    {
+      "name": "Get Task by ID",
+      "method": "GET",
+      "url": "{{baseUrl}}/tasks/1",
+      "headers": [],
+      "description": "Returns a specific task by ID"
+    },
+    {
+      "name": "Get Task by ID - Not Found",
+      "method": "GET",
+      "url": "{{baseUrl}}/tasks/9999",
+      "headers": [],
+      "description": "Example of task not found (404)"
+    },
+    {
+      "name": "Create Task - Empty Title",
+      "method": "POST",
+      "url": "{{baseUrl}}/tasks",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "mode": "raw",
+        "raw": "{\n  \"title\": \"\",\n  \"description\": \"Task without title\"\n}"
+      },
+      "description": "Example of validation error (400)"
+    }
+  ]
+}
+
